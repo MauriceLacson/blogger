@@ -19,6 +19,6 @@ class PagesController extends Controller
 
     function contact()
     {
-    	//return view('tickets.create');
+    	return view('tickets.create');
     }
 }
