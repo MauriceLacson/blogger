@@ -10,6 +10,7 @@
 			@if (session('status'))
 				<div class="alert alert-success">
 					{{ session('status') }}
+					<a href=" {!! action('TicketsController@index') !!}"><strong>  View Tickets</strong></a>
 				</div>
 			@endif
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">
