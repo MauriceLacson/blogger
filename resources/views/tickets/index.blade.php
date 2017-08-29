@@ -21,6 +21,7 @@
 					<tr>
 						<th>ID</th>
 						<th>Title</th>
+						<th>Content</th>
 						<th>Status</th>
 					</tr>
 				</thead>
@@ -33,6 +34,7 @@
 							{!! $ticket->title !!}
 							</a>
 						</td>
+						<td>{{ $ticket->content }}</td>
 						<td>{!! $ticket->status ? 'Pending' : 'Answered' !!}</td>
 					</tr>
 				@endforeach
