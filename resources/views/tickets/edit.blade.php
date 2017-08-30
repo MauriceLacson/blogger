@@ -37,9 +37,11 @@
 					</div>
 
 					<div class="form-group">
-						<label>
-							<input type="checkbox" name="status" {!! $ticket->status?"":"checked"!!} > Close this ticket?
-						</label>
+						<div class="col-lg-10 col-lg-offset-1">
+							<label>
+								<input type="checkbox" name="status" {!! $ticket->status?"":"checked"!!} > Close this ticket?
+							</label>
+						</div>
 					</div>
 
 					<div class="form-group">

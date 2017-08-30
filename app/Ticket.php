@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Comment;
 
 class Ticket extends Model
 {
@@ -13,6 +14,11 @@ class Ticket extends Model
     	'status',
     	'user_id'
     ];
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class, 'post_id');
+    }
 
     // protected $guarded = ['id'];
 
