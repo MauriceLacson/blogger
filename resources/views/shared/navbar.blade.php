@@ -14,7 +14,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-				<a class="navbar-brand" href="/">Learning Laravel</a>
+				<a class="navbar-brand" href="/">Ticket System</a>
 				</div>
 				<!-- Navbar Right -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -26,8 +26,12 @@
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Member
 							<span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
+							@if(Auth::check())
+								<li><a href="/users/logout">Logout</a></li>
+							@else
 								<li><a href="/users/register">Register</a></li>
 								<li><a href="/users/login">Login</a></li>
+							@endif
 							</ul>
 						</li>
 					</ul>
