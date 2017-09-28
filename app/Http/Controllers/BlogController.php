@@ -1,15 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Category;
-use App\Http\Requests\CategoryFormRequest;
-use App\Http\Requests\CategoryEditFormRequest;
+use App\Post;
 
-
-class CategoriesController extends Controller
+class BlogController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,9 +14,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::all();
-
-        return view('backend.categories.index', compact('categories'));
+        $posts = Post::all();
+        return view('blog.index', compact('posts'));
     }
 
     /**
@@ -30,7 +25,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('backend.categories.create');
+        //
     }
 
     /**
@@ -39,15 +34,9 @@ class CategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(CategoryFormRequest $request)
+    public function store(Request $request)
     {
-        $category = new Category(array(
-            'name' => $request->get('name'),
-        ));
-
-        $category->save();
-
-        return redirect('admin/categories/create')->with('status', 'A new category has been created!');
+        //
     }
 
     /**
@@ -56,9 +45,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
+        $post = Post::whereSlug($slug)->firstOrFail();
+        $comments = $post->comments()->get();
+        return view('blog.show', compact('post', 'comments'));
     }
 
     /**
@@ -69,8 +60,7 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = Category::whereId($id)->firstOrFail();
-        return view('backend.categories.edit', compact('category'));
+        //
     }
 
     /**
@@ -80,12 +70,9 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryEditFormRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $category = Category::whereId($id)->firstOrFail();
-        $category->name = $request->get('name');
-        $category->save();
-        return redirect(action('Admin\CategoriesController@edit', $category->id))->with('status', 'The category has been updated!');
+        //
     }
 
     /**
