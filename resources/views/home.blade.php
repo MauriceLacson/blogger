@@ -19,7 +19,6 @@
             <div class="content">
                 <div class="title">Home Page</div>
                 <div class="quote">Our Home page!</div>
-                <div class="btn btn-primary"><a href="{{ action('TicketsController@index') }}">View Tickets</div>
             </div>
         </div>
 @endsection
