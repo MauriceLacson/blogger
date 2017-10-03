@@ -14,25 +14,44 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-				<a class="navbar-brand" href="/">Learning Laravel</a>
+				<a class="navbar-brand" href="/">Maurice Blog Site</a>
 				</div>
 				<!-- Navbar Right -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li class="active"><a href="/">Home</a></li>
+						<li><a href="/blog">Blog</a></li>
 						<li><a href="/about">About</a></li>
 						<li><a href="/contact">Contact</a></li>
 						<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Member
 							<span class="caret"></span></a>
 							<ul class="dropdown-menu" role="menu">
+							@if(Auth::check())
+								@role('manager')
+									<li><a href="/admin">Admin</a></li>
+								@endrole	
+								<li><a href="/users/logout">Logout</a></li>
+							@else
 								<li><a href="/users/register">Register</a></li>
 								<li><a href="/users/login">Login</a></li>
+							@endif
 							</ul>
 						</li>
 					</ul>
 				</div>
 			</div>
 		</nav>
+		<!-- <script type="text/javascript">
+			$('#bs-example-navbar-collapse-1 > ul.nav li a').click(function(e) {
+			    var $this = $(this);
+			    $this.parent().siblings().removeClass('active').end().addClass('active');
+			    e.preventDefault();
+
+			    // Load the page content in to element
+			    // with id #content using ajax (There are other ways)
+			    $('#content').load($this.href());
+			});
+		</script> -->
 
 </html>

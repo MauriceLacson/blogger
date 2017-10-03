@@ -11,11 +11,13 @@
 	<link rel="stylesheet" type="text/css" href="/css/bootstrap-material-design.css">
 	<link rel="stylesheet" type="text/css" href="/css/ripples.min.css">
 
-	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 </head>
 <body>
 @include('shared.navbar')
 @yield('content')
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </body>
 </html>

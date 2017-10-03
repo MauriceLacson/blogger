@@ -34,6 +34,8 @@
 						<button class="btn btn-default"><a href="{{ action('PagesController@home') }}">Cancel</button>
 						<button type="submit" class="btn btn-primary">Submit</button>
 					</div>
+					<div><hr></div>
+					<div class="col-sm col-md-offset-10"><a href="{{ action('TicketsController@index') }}">View Tickets</div>
 				</div>
 				</fieldset>
 			</form>

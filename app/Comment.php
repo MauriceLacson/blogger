@@ -7,11 +7,16 @@ use App\Ticket;
 
 class Comment extends Model
 {
-    public function ticket()
-    {
-    	return $this->belongsTo(Ticket::class);
-    }
+    // public function ticket()
+    // {
+    // 	return $this->belongsTo(Ticket::class);
+    // }
 
     protected $guarded = ['id'];
+
+    public function post()
+    {
+    	return $this->morphTo();
+    }
 
 }
